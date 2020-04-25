@@ -1,0 +1,7 @@
+news_sites:
+
+  yahoo_finance_sites: [
+    "https://finance.yahoo.com/news",
+    "https://finance.yahoo.com/topic/stock-market-news",
+    "https://finance.yahoo.com/topic/morning-brief"
+  ]
