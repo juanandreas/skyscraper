@@ -2,11 +2,10 @@ import multiprocessing
 
 class Multiprocess(object):
 
-    def __init__(self, config, news_source):
+    def __init__(self, config, news_id, news_sources):
         self.config = config
-        self.news_sources = news_source
-        self.news_id = news_source[0]
-        self.news_urls_list = news_source[1]
+        self.news_id = news_id
+        self.news_urls_list = news_sources[news_id]
         self.processes = {}
 
     def get_processes(self):
@@ -29,10 +28,12 @@ class Multiprocess(object):
             raise Exception("Error: unable to start process")
 
     def kickoff_processes(self):
-        for process in self.processes:
+        for process_id in self.processes:
+            process = self.processes[process_id]
             process.start()
 
-        for process in self.processes:
+        for process_id in self.processes:
+            process = self.processes[process_id]
             process.join()
 
     

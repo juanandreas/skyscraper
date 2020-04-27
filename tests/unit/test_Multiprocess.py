@@ -10,10 +10,10 @@ class TestMultiprocess(TestCase):
 
     def setUp(self):
         self.config = yaml.load(open("conf/dev/conf.yaml", 'r').read(), Loader=yaml.Loader)
-        self.news_source = ("news_id", ["news_url_0",
+        self.news_sources = {"news_id": ["news_url_0",
                                         "news_url_1",
-                                        "news_url_2"])
-        self.multiproc = Multiprocess(self.config, self.news_source)
+                                        "news_url_2"]}
+        self.multiproc = Multiprocess(self.config, "news_id", self.news_sources)
 
     def tearDown(self):
         unstub()
