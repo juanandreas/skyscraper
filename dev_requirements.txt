@@ -1,1 +1,5 @@
 -r requirements.txt
+
+mockito==1.1.1
+nose
+coverage

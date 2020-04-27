@@ -1,0 +1,13 @@
+yahoo_finance: [
+  "https://finance.yahoo.com/news",
+  "https://finance.yahoo.com/topic/stock-market-news",
+  "https://finance.yahoo.com/topic/morning-brief"
+]
+
+citron: [
+  'https://citronresearch.com/category/2020-reports/'
+]
+
+twitter: [
+  'https://twitter.com/{username}'
+]
