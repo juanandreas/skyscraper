@@ -28,8 +28,8 @@ class Notification(object):
         news_url_label.pack(side="top", fill="x", pady=10, padx=100)
         url_button = ttk.Button(self.popup, text="Visit {0}".format(message_obj["news_id"]), command= lambda: self.callback(message_obj["news_url"]))
         url_button.pack()
-        # ok_button = ttk.Button(self.popup, text="Okay", command = self.popup.destroy)
-        # ok_button.pack()
+        ok_button = ttk.Button(self.popup, text="Okay", command = self.popup.destroy)
+        ok_button.pack()
         self.popup.call('wm', 'attributes', '.', '-topmost', '1')
         self.popup.mainloop()
 
