@@ -11,3 +11,7 @@ citron: [
 twitter: [
   'https://twitter.com/{username}'
 ]
+
+ftc: [
+  'https://www.ftc.gov/news-events/press-releases'
+]

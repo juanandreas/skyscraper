@@ -5,12 +5,14 @@ import yaml
 
 from src.citron_scraper import CitronScraper
 from src.twitter_scraper import TwitterScraper
+from src.ftc_scraper import FTCScraper
 
 class ScrapersController(object):
     def __init__(self, config, news_sources):
         self.all_scrapers = {
             "citron_scraper": CitronScraper(config, "citron", news_sources),
             "twitter_scraper": TwitterScraper(config, "twitter", news_sources),
+            "ftc_scraper": FTCScraper(config, "ftc", news_sources)
             # "yahoo_finance_scraper": yahooFinanceScraper(config, news_sources)
         } 
 
