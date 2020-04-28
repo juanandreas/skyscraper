@@ -36,7 +36,7 @@ class Notification(object):
         self.popup.mainloop()
 
     def stream_notification(self, message_obj):
-        print("{0} News updated detected: {1}".format(
+        print("{0} News update detected: {1}".format(
             datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S:"),
             message_obj["news_url"]))
 
