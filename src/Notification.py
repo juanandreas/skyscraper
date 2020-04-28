@@ -1,4 +1,6 @@
 import datetime
+import os
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 import time
 import tkinter as tk
 import webbrowser
@@ -45,15 +47,21 @@ class Notification(object):
 
 
     def stream_notification(self, message_obj):
+        '''
+        message_obj = {
+            "news_id": <news_source>,
+            "news_url": <news_url>
+        }
+        '''
         print("{0} News update detected: {1}".format(
             datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S:"),
             message_obj["news_url"]))
         self.play_sound()
 
-n1 = Notification()
-msg = {
-    "news_id": "yt1",
-    "news_url": "https://youtube.com"
-}
-n1.stream_notification(msg)
+# n1 = Notification()
+# msg = {
+#     "news_id": "yt1",
+#     "news_url": "https://youtube.com"
+# }
+# n1.stream_notification(msg)
 
