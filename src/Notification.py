@@ -15,7 +15,7 @@ class Notification(object):
         browser.open_new(url)
         self.popup.destroy
 
-    def notify(self, message_obj):
+    def window_notify(self, message_obj):
         '''
         message_obj = {
             "news_id": <news_source>,
@@ -33,10 +33,23 @@ class Notification(object):
         self.popup.call('wm', 'attributes', '.', '-topmost', '1')
         self.popup.mainloop()
 
-n = Notification()
-
+n1 = Notification()
 msg = {
-    "news_id": "citron",
+    "news_id": "yt1",
     "news_url": "https://youtube.com"
 }
-n.notify(msg)
+n1.window_notify(msg)
+
+n2 = Notification()
+msg = {
+    "news_id": "yt2",
+    "news_url": "https://youtube.com"
+}
+n2.window_notify(msg)
+
+n3 = Notification()
+msg = {
+    "news_id": "yt3",
+    "news_url": "https://youtube.com"
+}
+n3.window_notify(msg)
