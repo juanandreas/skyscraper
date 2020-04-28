@@ -1,6 +1,5 @@
-import webbrowser
-
 import tkinter as tk
+import webbrowser
 from tkinter import ttk, Label
 
 LARGE_FONT= ("Verdana", 12)
