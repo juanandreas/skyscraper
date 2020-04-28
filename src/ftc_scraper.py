@@ -1,8 +1,10 @@
 import requests
+import time
 from bs4 import BeautifulSoup as BeautifulSoup
 from pprint import pprint
 from Multiprocess import Multiprocess
-import time
+from src.Notification import Notification
+
 
 class FTCScraper(Multiprocess):
     
@@ -22,20 +24,30 @@ class FTCScraper(Multiprocess):
         
 
 
-msg = {
-    "news_id": "yt1",
-    "news_url": "https://youtube.com"
-}
+# msg = {
+#     "news_id": "yt1",
+#     "news_url": "https://youtube.com"
+# }
 # n1.window_notify(msg)
 
-news_sources = {0:["https://www.ftc.gov/news-events/press-releases"]}
-config = None
-test_scraper = FTCScraper(config, 0, news_sources)
-test_cache = test_scraper.scrape(news_sources[0])
+def main():
+    news_sources = {0:["https://www.ftc.gov/news-events/press-releases"]}
+    config = None
+    test_scraper = FTCScraper(config, 0, news_sources)
+    test_cache = test_scraper.scrape(news_sources[0])
+    notif = Notification()
+    while True:
+        freshScrape = test_scraper.scrape(news_sources[0])
+        if freshScrape != test_cache:
+            pprint(freshScrape[0])
+            msg_body = {
+                "news_id": "FTC",
+                "news_url": "https://www.ftc.gov/news-events/press-releases"
+            }
+            notif.stream_notification(msg_body)
+            print("=================================================================")
+        else:
+            time.sleep(1)
 
-while True:
-    freshScrape = test_scraper.scrape(news_sources[0])
-    if freshScrape != test_cache:
-        pprint(freshScrape[0])
-    else:
-        time.sleep(1)
+if __name__ == '__main__':
+    main()
