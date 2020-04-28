@@ -1,6 +1,8 @@
+import datetime
 import tkinter as tk
 import webbrowser
 from tkinter import ttk, Label
+
 
 LARGE_FONT= ("Verdana", 12)
 
@@ -33,23 +35,29 @@ class Notification(object):
         self.popup.call('wm', 'attributes', '.', '-topmost', '1')
         self.popup.mainloop()
 
+    def stream_notification(self, message_obj):
+        print("{0} News updated detected: {1}".format(
+            datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S:"),
+            message_obj["news_url"]))
+
 n1 = Notification()
 msg = {
     "news_id": "yt1",
     "news_url": "https://youtube.com"
 }
-n1.window_notify(msg)
+# n1.window_notify(msg)
+n1.stream_notification(msg)
 
-n2 = Notification()
-msg = {
-    "news_id": "yt2",
-    "news_url": "https://youtube.com"
-}
-n2.window_notify(msg)
+# n2 = Notification()
+# msg = {
+#     "news_id": "yt2",
+#     "news_url": "https://youtube.com"
+# }
+# n2.window_notify(msg)
 
-n3 = Notification()
-msg = {
-    "news_id": "yt3",
-    "news_url": "https://youtube.com"
-}
-n3.window_notify(msg)
+# n3 = Notification()
+# msg = {
+#     "news_id": "yt3",
+#     "news_url": "https://youtube.com"
+# }
+# n3.window_notify(msg)
